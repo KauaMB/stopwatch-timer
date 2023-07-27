@@ -12,6 +12,19 @@ body {
   justify-content: center;
   align-items: center;
   gap: 50px;
+
+  position: relative;
+}
+
+.page-background::after {
+  content: '@KauaMB';
+  color: #fff;
+  font-size: 40px;
+  font-family: poppins;
+
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .stopwatch-container {
@@ -85,5 +98,5 @@ body {
 .numbers {
   color: #fff;
   font-size: 100px;
-  font-family: ds-digital, arial;
+  font-family: ds-digital, poppins;
 }

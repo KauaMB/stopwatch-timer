@@ -43,8 +43,8 @@
 
       <div>
 
-        <button class="function-button js-stopwatch">
-          <p class="text-container">STOPWATCH</p>
+        <button class="function-button js-timer">
+          <p class="text-container">TIMER</p>
         </button>
 
       </div>
@@ -77,8 +77,8 @@
     $('.js-seconds').text(seconds);
 
     const addTime = () => {
-      let secondsNumber = 58;
-      let minutesNumber = 58;
+      let secondsNumber = 0;
+      let minutesNumber = 0;
       let hoursNumber = 0;
 
       const intevalID = setInterval(() => {
