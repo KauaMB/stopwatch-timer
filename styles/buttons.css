@@ -1,0 +1,74 @@
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.function-button {
+  width: 200px; height: 70px;
+
+  background-color: #00000000;
+  color: #fff;
+
+  border-radius: 7px;
+  border: none;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.function-button::before {
+  content: '';
+
+  width: 500px; height: 500px;
+  inset: 0;
+
+  background: #272727;
+  
+  position: absolute;
+  top: -100%;
+  left: -100%;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.function-button:hover::before {
+  background: conic-gradient(#300558,
+  #4c00ff,
+  #0400ff,
+  #ff0000,
+  #ff00aa,
+  #15ff00,
+  #300558);
+
+  animation: spin 1.5s infinite linear;
+}
+
+.text-container {
+  width: 98%; height: 94%;
+  
+  background: linear-gradient(to right, #000,
+  #0f0f0f,
+  #000);
+  border-radius: 5px;
+
+  position: absolute;
+  top: -16%;
+  left: 1%;
+
+  display: grid;
+  place-content: center;
+
+  font-family: poppins, Arial, Helvetica, sans-serif;
+  letter-spacing: 6px;
+
+  transition: opacity .05s;
+}
+
+.text-container:active {
+  opacity: .9;
+}

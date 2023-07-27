@@ -1,0 +1,89 @@
+body {
+  background: linear-gradient(to right,
+      #000000,
+      #161616,
+      #000000);
+}
+
+.page-background {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.stopwatch-container {
+  width: 500px;
+  height: 200px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 20px 30px #00000049;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.stopwatch-container::before {
+  content: '';
+
+  width: 1000px;
+  height: 1000px;
+  border-radius: inherit;
+
+  inset: 0;
+  /* opacity: 0.2; */
+
+  background: conic-gradient(#300558,
+      #4c00ff,
+      #0400ff,
+      #ff0000,
+      #ff00aa,
+      #15ff00,
+      #300558);
+
+
+
+  position: absolute;
+  left: -50%;
+  top: -50%;
+
+  animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.numbers-container {
+  position: absolute;
+  top: 2%;
+  left: 1%;
+
+  width: 98%;
+  height: 96%;
+  border-radius: inherit;
+
+  background: linear-gradient(to right, #000,
+      #0f0f0f,
+      #000);
+
+  display: grid;
+  grid-template-columns: 120px 120px 110px;
+  place-content: center;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.numbers {
+  color: #fff;
+  font-size: 100px;
+  font-family: ds-digital, arial;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/timer.css">
+  <link rel="stylesheet" href="styles/buttons.css">
+  <link href="https://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <title>Stopwatch</title>
+</head>
+
+<body>
+
+  <div class="page-background">
+
+    <section class="stopwatch-container">
+
+      <div class="numbers-container">
+
+        <div>
+          <p class="numbers js-hours">00:</p>
+        </div>
+
+        <div>
+          <p class="numbers js-minutes">00:</p>
+        </div>
+
+        <div>
+          <p class="numbers js-seconds">00</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="buttons-container">
+
+      <div>
+
+        <button class="function-button js-stopwatch">
+          <p class="text-container">STOPWATCH</p>
+        </button>
+
+      </div>
+
+      <div>
+
+        <button class="function-button js-start-clock">
+          <p class="text-container">START CLOCK</p>
+        </button>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <script>
+    let timeValues = {
+      hours: '00:',
+      minutes: '00:',
+      seconds: '00'
+    };
+
+    let seconds = timeValues.seconds;
+    let minutes = timeValues.minutes;
+    let hours = timeValues.hours;
+
+    $('.js-hours').text(hours);
+    $('.js-minutes').text(minutes);
+    $('.js-seconds').text(seconds);
+
+    const addTime = () => {
+      let secondsNumber = 58;
+      let minutesNumber = 58;
+      let hoursNumber = 0;
+
+      const intevalID = setInterval(() => {
+        if (secondsNumber <= 59) {
+          secondsNumber++
+
+          if (seconds < 9) {
+            seconds = `0${secondsNumber}`
+          }
+          else {
+            seconds = JSON.stringify(secondsNumber);;
+          }
+
+          $('.js-seconds').text(seconds);
+
+          if (secondsNumber === 60) {
+            minutesNumber += 1
+
+            if (minutesNumber < 9) {
+              minutes = `0${minutesNumber}`
+            }
+            else {
+              minutes = JSON.stringify(minutesNumber);
+            }
+
+            
+            secondsNumber = 0;
+            seconds = `0${secondsNumber}` 
+          }
+
+          $('.js-minutes').text(`${minutes}:`)
+
+          if (minutesNumber === 60) {
+            minutesNumber = 0;
+            minutes = `0${minutesNumber}`;
+
+            hoursNumber += 1
+
+            if (hoursNumber <= 9) {
+              hours = `0${hoursNumber}`
+            }
+            else {
+              hours = JSON.stringify(hoursNumber);
+            }
+
+          }
+
+          $('.js-hours').text(`${hours}:`)
+        }
+      }, 1000);
+
+    }
+
+    $('.js-start-clock').on('click', () => {
+      addTime()
+    })
+
+    console.log(seconds);
+
+
+  </script>
+
+</body>
+
+</html>
